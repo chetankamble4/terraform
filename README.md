@@ -1,2 +1,2 @@
 # Terraform
-Project: Wordpress Application Deploy through Terraform on AWS infrastructure
+**Project: Wordpress Application Deploy through Terraform on AWS infrastructure
