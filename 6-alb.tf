@@ -47,7 +47,6 @@ resource "aws_lb" "skyage_alb" {
   /* "enable_deletion_protection" If true, deletion of the load balancer will be disabled via
   the AWS API. This will prevent Terraform from deleting the load balancer.*/
 
-  the AWS API. This will prevent Terraform from deleting the load balancer.*/
 }
 
 
