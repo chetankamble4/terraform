@@ -41,7 +41,7 @@ sudo systemctl start mariadb
 sudo systemctl enable mariadb
 
 # STEP 3 - Setpassword & DB Variables
-DBName='HR_RDS_DB'
+DBName='skyage_RDS_DB'
 DBUser='admin'
 DBPassword='admin123'
 DBRootPassword='Admin123root'
@@ -89,7 +89,7 @@ resource "aws_instance" "skyage-bastion-server" {
   ami                         = data.aws_ami.amazon_linux_2.id
   instance_type               = "t2.micro"
   key_name                    = "demo"
-  subnet_id                   = aws_subnet.public_subnet1.id
+  subnet_id                   = aws_subnet.skyage-public-subnet-1.id
   associate_public_ip_address = "true"
   vpc_security_group_ids      = [aws_security_group.skyage-bastion-sg.id]
   tags = {
@@ -103,7 +103,7 @@ resource "aws_instance" "skyage-app-server-1" {
   ami                         = data.aws_ami.amazon_linux_2.id
   instance_type               = "t2.micro"
   key_name                    = "demo"
-  subnet_id                   = aws_subnet.private_subnet1.id
+  subnet_id                   = aws_subnet.skyage-private-subnet-1.id
   associate_public_ip_address = "false"
   vpc_security_group_ids      = [aws_security_group.skyage-App-SG.id]
   user_data                   = base64encode(local.user_data)
@@ -121,7 +121,7 @@ resource "aws_instance" "skyage-app-server-2" {
   ami                         = data.aws_ami.amazon_linux_2.id
   instance_type               = "t2.micro"
   key_name                    = "demo"
-  subnet_id                   = aws_subnet.private_subnet2.id
+  subnet_id                   = aws_subnet.skyage-private-subnet-2.id
   associate_public_ip_address = "false"
   vpc_security_group_ids      = [aws_security_group.skyage-App-SG.id]
   user_data                   = base64encode(local.user_data)
