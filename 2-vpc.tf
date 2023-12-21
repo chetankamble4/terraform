@@ -112,12 +112,12 @@ resource "aws_route_table" "skyage-public-rt" {
 # Associate both public subnets with public route table
 resource "aws_route_table_association" "public_subnet_association-1" {
   route_table_id = aws_route_table.skyage-public-rt.id
-  subnet_id      = aws_subnet.public_subnet-1.id
+  subnet_id      = aws_subnet.skyage-public-subnet-1.id
 }
 
 resource "aws_route_table_association" "public_subnet_association-2" {
   route_table_id = aws_route_table.skyage-public-rt.id
-  subnet_id      = aws_subnet.public-subnet-2.id
+  subnet_id      = aws_subnet.skyage-public-subnet-2.id
 }
 
 # Add Internet Gateway into public route table
