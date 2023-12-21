@@ -21,7 +21,7 @@ resource "aws_subnet" "skyage-public-subnet-1" {
   }
 }
 
-resource "aws_subnet" "public_subnet2" {
+resource "aws_subnet" "skyage-public-subnet-2" {
   vpc_id                  = aws_vpc.skyage_vpc.id
   cidr_block              = "172.16.2.0/24"
   availability_zone       = "us-east-1b"
