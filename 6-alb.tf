@@ -3,7 +3,7 @@ resource "aws_lb_target_group" "skyage_tg" {
   name        = "skyage-target-group"
   port        = 80
   protocol    = "HTTP"
-  vpc_id      = aws_vpc.skyage.id
+  vpc_id      = aws_vpc.skyage_vpc.id
 
   stickiness { #here no need to enabled this stickiness argument,#
     #enabled = true
@@ -41,7 +41,7 @@ resource "aws_lb" "skyage_alb" {
   name                       = "skyage-alb"
   internal                   = false
   load_balancer_type         = "application"
-  subnets                    = [aws_subnet.public_subnet1.id,aws_subnet.public_subnet2.id]
+  subnets                    = [aws_subnet.skyage-public-subnet-1.id,aws_subnet.skyage-public-subnet-2.id]
   security_groups            = [aws_security_group.skyage-ALB-SG.id]
   enable_deletion_protection = false
   /* "enable_deletion_protection" If true, deletion of the load balancer will be disabled via
